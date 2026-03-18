@@ -8,7 +8,7 @@ spring:
     # 数据库配置
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/ymage
+    url: jdbc:mysql://localhost:3306/ymage_db?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
     username: root
     password: root
 mybatis-plus:
@@ -28,7 +28,6 @@ knife4j:
   openapi:
     title: 接口文档
     description: ymage接口文档
-    # aaa"
     email: yngcy3@gmail.com
     concat: yngcy
     version: v0.1
