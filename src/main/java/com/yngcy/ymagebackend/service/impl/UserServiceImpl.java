@@ -27,7 +27,7 @@ import java.util.stream.Collectors;
 import static com.yngcy.ymagebackend.constant.UserConstant.USER_LOGIN_STATE;
 
 /**
- * @author Administrator
+ * @author yngcy
  * @description 针对表【user(用户)】的数据库操作Service实现
  * @createDate 2026-03-18 11:35:49
  */
@@ -188,6 +188,11 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
         queryWrapper.like(StrUtil.isNotBlank(userProfile), "userProfile", userProfile);
         queryWrapper.orderBy(StrUtil.isNotEmpty(sortField), sortOrder.equals("ascend"), sortField);
         return queryWrapper;
+    }
+
+    @Override
+    public boolean isAdmin(User user) {
+        return user != null && UserRoleEnum.ADMIN.getValue().equals(user.getUserRole());
     }
 
 }
